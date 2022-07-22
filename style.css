@@ -1,0 +1,952 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+/*Variables - colors*/
+:root {
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  --color-dark:#0E0E0E;
+  --color-blue: #0025B9;
+  --color-blue-light:#428bca;
+  --color-brown: #eb2f64;
+  --color--red: #FE0000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*Body modification*/
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background: var(--color-grey-light-4);
+  margin:0;
+}
+
+/* -----------Header modification------------ */
+.header {
+  font-size: 1.4rem;
+  height: 5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Modification menu burger*/
+.burger{
+	position:absolute;
+  background-color:transparent;
+	left:0;
+	top:.5rem;
+	height:1.8rem;
+	width:1.8rem;
+	padding:1.25rem 1.25rem;
+	-webkit-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-transition:-webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	transition:transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	z-index: 60;
+	cursor:pointer;
+	user-select:none
+}
+.burger:hover .__top{
+  transform:translateY(-100%);
+}
+.burger:hover .__bottom{
+	transform:translateY(100%);
+	}
+.burger.is-active .__top{
+	transform:translateY(200%) rotate(45deg);
+}
+.burger.is-active .__mid{
+	opacity:0;
+}
+.burger.is-active .__bottom{
+	transform:translateY(-200%) rotate(135deg);
+}
+
+/*Modification burger layer*/
+.burger__layer{
+	background: var(--color-grey-dark-1);
+	margin-bottom:4px;
+	border-radius:2px;
+	width:28px;
+	height:4px;
+	opacity:1;
+	transform:translate3d(0, 0, 0);
+	transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+
+/*Modification burger menu*/
+.menu__burger{
+  background: linear-gradient(23deg, rgba(98, 98, 103, 0.966) 0%, rgba(220, 220, 238, 0.952) 50%);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(0px, -100%, 0px);
+  transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+  z-index: 50;
+}
+.menu__burger.is_active{
+  transform: translate3d(0px, 0px, 0px);
+}
+
+/*Modification ul burger menu*/
+.menu__burger ul{
+  margin: 0;
+  padding: 0;
+}
+
+/*Modification list burger menu*/
+.menu__burger ul li {
+  height:2em; 
+  margin-top: 3rem;
+  list-style: none;
+	text-align: center;
+	font-size:2rem;
+	line-height: 3em;
+	text-transform:uppercase;
+	font-weight:700;
+}
+.menu__burger ul li a{
+  text-decoration:none;
+  color: var(--color-grey-dark-1);
+}
+.menu__burger ul li a:hover{
+  text-decoration:none;
+  color:var(--color-brown);
+}
+
+/*Logo vive shops modification*/
+.logo {
+  height: 2rem;
+  margin-left: 6rem;
+}
+
+/*Search modification*/
+.search {
+  flex: 0 0 25%;
+  display: flex;
+  margin-left: -3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Search input modification*/
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: var(--color-grey-light-2);
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 10px;
+  width: 80%;
+  transition: all 0.5s;
+  margin-right: -3.25rem;
+}
+
+/*Search input focus modification*/
+.search__input:focus {
+  outline: none;
+  width: 100%;
+  background-color: var(--color-grey-light-3);
+}
+
+/*Placeholder modification*/
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: var(--color-grey-light-4);
+}
+
+/*Background search modification*/
+.search__input:focus + .search__button {
+  background-color: var(--color-grey-light-3);
+}
+
+/*Button search modification*/
+.search__button {
+  border: none;
+  background-color: var(--color-grey-light-2);
+}
+
+/*Search button focus modification*/
+.search__button:focus {
+  outline: none;
+}
+
+/*Search button active modification*/
+.search__button:active {
+  transform: translateY(2px);
+}
+
+/*Search icon modification*/
+.search__icon {
+  display: flex;
+  position: relative;
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  margin-top: 7px;
+  fill: var(--color-grey-dark-3);
+}
+
+/*Text modification see site*/
+.see__site__text{
+    text-align:center;
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+/*Modification icon view site*/
+.see__site{
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+/*Modification user nav*/
+.user__nav {
+  align-self: stretch;
+  display: flex;
+  margin-left: -6rem;
+  align-items: center;
+}
+.user__nav > * {
+  padding: 0 2rem;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.user__nav > *:hover {
+  background-color: var(--color-grey-light-2);
+}
+.user__nav__icon__box {
+  position: relative;
+}
+
+/*Modification icon notification*/
+.notification__icon{
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+/*Modification circle icon notification*/
+.user__nav__notification {
+  font-size: 0.8rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  background-color: var(--color-brown);
+  color: var(--color-grey-light-1);
+  position: absolute;
+  top: 1.2rem;
+  right: 1.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Modification circle icon notification*/
+.user__nav__icon { 
+  height: 2rem;
+  width: 2rem;
+  fill: var(--color-grey-dark-2);
+}
+
+/*User photo modification*/
+.user__nav__user__photo {
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/*Modification username*/
+.user__nav__user__name{
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/*Admin name modification*/
+.user__nav__user__admin{
+    font-size: 1.1rem;
+    font-weight: lighter;
+}
+
+/*Separator line modification*/
+.v__line{
+  border-left: thick solid var(--color-grey-light-4);
+  height:3rem;
+  margin-left: 115%;
+  position: relative;
+ }
+
+/*Modification dropdown icon*/
+.dropdown{
+  padding: 0 2rem;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* -----------Modification section 1------------ */
+.section__1{
+  height: 18rem;
+}
+
+/*Modification container 1*/
+.container__1{
+  height: 18rem;
+  width: 78rem;
+  margin: 2rem auto;
+  background: var(--color-grey-light-1);
+}
+
+/*Modification container img contryside*/
+.container__img__countryside{
+  position: relative;
+  height: 10rem;
+  width: 10rem;
+  float: left;
+  margin-top: 4rem;
+  margin-left: 2rem;
+  background: var(--color-grey-light-1);
+  border: 1px solid var(--color-grey-light-4);
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px 0 var(--color-grey-light-4);
+  align-items: center;
+}
+
+/*Modification img contryside*/
+.img__countryside__img{
+  position: relative;
+  top: 4rem;
+  left: .8rem;
+  width: 8rem;
+  height:2rem;
+}
+
+/*Modification title contryside express*/
+.Title{
+  display: inline-block;
+  margin-top: 4rem;
+  margin-left: 1.2rem;
+}
+
+/*Modification paragraph contryside*/
+.Paragraph__countryside{
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+}
+
+/*Modification Link contryside*/
+.link__countryside{
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  text-decoration: none;
+  color: var(--color-blue);
+}
+
+/*Modification Link copy contryside*/
+.copy{
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  color: var(--color-blue);
+}
+
+/*Separator line 2 modification*/
+.v__line__2{
+  display: inline-block;
+  border-left: thick solid var(--color-grey-light-4);
+  margin-top: -12rem;
+  height:16rem;
+  margin-left: 20rem;
+}
+
+/*Bar title modification*/
+.Title__bar{
+  float: right;
+  margin-top: -22rem;
+  margin-left: 37rem;
+}
+
+/*Pogress modification*/
+.progress {
+  float: right;
+  height: 20px;
+  width: 30%;
+  margin-right: 8rem;
+  margin-top: -18rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-grey-light-4);
+  margin-bottom: 15px;
+}
+
+/*Pogress bar modification*/
+.progress__bar {
+  height: 100%;
+  background: var(--color-blue-light);
+  display: flex;
+  align-items: center;
+  transition: width 0.25s;
+  border-radius: 5px;
+}
+
+/*Product icon modification*/
+.prod__icon{
+  display: flex;
+  float: right;
+  height: 1.3rem;
+  width: 1.3rem;
+  margin-top: -19rem;
+  margin-right:46rem;
+}
+
+/*Site icon modification*/
+.site__icon{
+  display: flex;
+  float: right;
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-top: -16rem;
+  margin-right:45.7rem;
+}
+
+/*Card icon modification*/
+.card__icon{
+  display: flex;
+  float: right;
+  height: 1.3rem;
+  width: 1.3rem;
+  margin-top: -12.7rem;
+  margin-right:46rem;
+}
+
+/*World icon modification*/
+.world__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -9.6rem;
+  margin-right:45.7rem;
+}
+
+/*Color icon modification*/
+.color__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -19rem;
+  margin-right:27rem;
+}
+
+/*Gift icon modification*/
+.gift__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -16rem;
+  margin-right:27rem;
+}
+
+/*Product icon modification*/
+.voice__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -13rem;
+  margin-right:27rem;
+}
+
+/*Carnet icon modification*/
+.carnet__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -9.6rem;
+  margin-right:27rem;
+}
+
+/*Modification create product*/
+.list__count__left{
+  display: flex;
+  float: right;
+  height: 15rem;
+  width: 15rem;
+  margin-top: -24.5rem;
+  margin-right:34.6rem;
+}
+
+/*Modification button create product*/
+.button {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  float: left;
+  font-size: 1em;
+  padding: 10px;
+  color: var(--color-dark);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  color: var(--color-grey-dark-2);
+}
+
+/*Modification left list */
+.list__left{
+    float: right;
+    list-style: none;
+    margin-top:-15.8rem;
+    margin-right: 17.3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*Modification items left*/
+.list__item__left{
+  flex: 0 0 100%;
+  margin-bottom: 2rem;
+  cursor: pointer; 
+}
+
+/*Modification right list*/
+.list__right{
+  float: left;
+  list-style: none;
+  margin-top:-19rem;
+  margin-left:57.3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*Modification items right*/
+.list__item__right{
+flex: 0 0 20rem;
+margin-bottom: 2rem; 
+cursor: pointer;
+}
+
+/*Modification items right select*/
+.list__item__right__select{
+  flex: 0 0 100%;
+  margin-bottom: 2rem; 
+  color: var(--color-grey-dark-2);
+  cursor: pointer;
+}
+
+/*check 1 icon modification*/
+.check__1__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -19rem;
+  margin-right: 12rem;
+}
+
+/*check 2 icon modification*/
+.check__2__icon{
+  display: flex;
+  float: right;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -16rem;
+  margin-right: 12rem;
+}
+
+/* -----------Modification section 2------------ */
+
+/*Container modification*/
+.container__2{
+  height: 23rem;
+  width: 78rem;
+  margin-top: 0rem;
+  margin:2rem auto;
+  background: var(--color-grey-light-1);
+}
+
+/*Title stadist modification*/
+h2.Title__Graph__stad{
+  display: flex;
+  position: relative;
+  float: left;
+  top: -1rem;
+  left: 2rem;
+  margin: 0;
+}
+
+/*Days selection modification*/
+.select__last__day{
+  display: flex;
+  position: relative;
+  float: right;
+  height: 1.7rem;
+  width: 20%;
+  margin:0;
+  top: -2rem;
+  right: 3rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-grey-dark-2);
+  font-family: inherit;
+}
+
+/*Title visits modification*/
+.Title__visits{
+  display: flex;
+  position: relative;
+  float: left;
+  top: 4rem;
+  left: -2rem;
+  margin: 0;
+}
+
+/*Icon visits modification*/
+.icon__visits{
+  display: flex;
+  position: relative;
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  top: 4rem;
+  left: -1rem;
+  margin: 0;
+}
+
+/*Graphic modification visits*/
+.chartContainer__1_1{
+  display:grid;
+  position: relative;
+  float: left;
+  height: 8rem;
+  width: 13rem;
+  margin: 0;
+  bottom: -7rem;
+  left: -6rem;
+  z-index: 40;
+}
+
+/*Title conversions modification*/
+.Title__conversions{
+  display: flex;
+  position: relative;
+  float: left;
+  top: 4rem;
+  left: -1rem;
+  margin: 0;
+}
+
+/*Icon convertions modification*/
+.icon__conversions{
+  display: flex;
+  position: relative;
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  top: 4rem;
+  left: 1rem;
+  margin: 0;
+}
+
+/*Graphic modification convertions*/
+.chartContainer__2_2{
+  display:grid;
+  position: relative;
+  float: left;
+  height: 8rem;
+  width: 13rem;
+  margin: 0;
+  bottom: -7rem;
+  left: -8rem;
+  z-index: 30;
+}
+
+/*Title conversion rate modification*/
+.Title__conversions__rate{
+  display: flex;
+  position: relative;
+  float: left;
+  top: 4rem;
+  left: -3rem;
+  margin: 0;
+}
+
+/*Modification icon convertions rate*/
+.icon__conversions__rate{
+  display: flex;
+  position: relative;
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  top: 4rem;
+  left: -2rem;
+  margin: 0;
+}
+
+/*Graphic modification convertions rate*/
+.chartContainer__3_3{
+  display:grid;
+  position: relative;
+  float: left;
+  height: 8rem;
+  width: 13rem;
+  margin: 0rem;
+  top: 5.7rem;
+  right: 3rem;
+  z-index: 20;
+}
+
+/*Title sales modification*/
+.Title__sales{
+  display: flex;
+  position: relative;
+  float: left;
+  top: 2.7rem;
+  right: -3rem;
+  margin: 0;
+}
+
+/*Modification icon sales*/
+.icon__sales{
+  display: flex;
+  position: relative;
+  float: left;
+  height: 1rem;
+  width: 1rem;
+  top: 2.8rem;
+  right: -4rem;
+  margin: 0;
+}
+
+/*Graphic modification sales*/
+.chartContainer__4_4{
+  display:grid;
+  position: relative;
+  float: left;
+  height: 8rem;
+  width: 13rem;
+  margin: 0rem;
+  top: 5rem;
+  right: 1rem;
+  z-index: 20;
+}
+
+/* -----------Modification pop up------------ */
+
+/*Modification background pop up*/
+.overlay {
+  position: fixed;
+  height:146.2%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 200;
+}
+
+/*Modification card pop up*/
+.overlay:target {
+  position: absolute;
+  visibility: visible;
+  opacity: 1;
+}
+
+/*Modification pop up*/
+.popup {
+  position: relative;
+  margin: 2rem auto;
+  padding: 20px;
+  background: var(--color-grey-light-1);
+  border-radius: 5px;
+  width: 30%;
+  transition: all 5s ease-in-out;
+  z-index: 100;
+}
+
+/*Modification title pop up*/
+.popup h2 {
+  margin-top: 0;
+  color: var(--color-grey-dark-1);
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/*Modification close pop up*/
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-grey-dark-1);
+}
+.popup .close:hover {
+  color: var(--color-grey-dark-3);
+}
+
+/*Modification content pop up*/
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+/* -----------Form pop up Modification------------ */
+
+/*Modification title form - pop up*/
+h2.title__create__producto{
+font-size: 1rem;
+text-align: center;
+}
+
+/*Modification subtitle form - pop up*/
+h4.title__infor__producto{
+  display: flex;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+/*Modification margin form - pop up*/
+form, p {
+  margin: 1rem;
+}
+
+/*Modification note - pop up*/
+p.note {
+  font-size: 1rem;
+  color: var(--color--red);
+}
+
+/*Selector modification  form - pop up*/
+select{
+  border-radius: 5px;
+  border: 1px solid var(--color-grey-dark-2);
+  padding: 2px;
+  font-family: inherit;
+  height: 1.7rem;
+  width: 90%;
+  margin-top: .4rem;
+}
+
+/*Input modification  form - pop up*/
+input {
+  border-radius: 5px;
+  border: 1px solid var(--color-grey-dark-2);
+  padding: 4px;
+  font-family: inherit;
+  width: 300px;
+  margin-top: .5rem;
+}
+input.error {
+  border: 1px dashed var(--color--red);
+  font-weight: 300;
+  color: var(--color--red);
+}
+
+/*Label modification  form - pop up*/
+label {
+  width: 300px;
+  font-size: .9rem;
+  display: inline-block;
+  margin-top: .5rem;
+}
+label span {
+  font-size: .9rem;
+}
+label.error {
+    color: var(--color--red);
+    font-size: 1rem;
+    display: block;
+    margin-top: 5px;
+}
+
+/*Button submit modification  form - pop up*/
+[type="submit"], [type="reset"], button, html [type="button"] {
+    margin-left: 0;
+    border-radius: 10px;
+    background: var(--color-dark);
+    color: var(--color-grey-light-1);
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.submit:hover{
+  color: var(--color-dark);
+  background: var(--color-grey-dark-3);
+  font-weight: 600;
+  transition: .5s all;
+  cursor: pointer;
+}
+
+/*Modification Logo 2 */
+.logo2{
+  position: relative;
+  float: right;
+  height: 4rem;
+  width: 7rem;
+  margin-top: -2rem;
+  margin-right: 3rem;
+}
+
+/* -----------Footer modification------------ */
+
+/*Modification container footer */
+.container__footer{
+  height: 3rem;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 0;
+  background: var(--color-grey-light-1);
+}
+
+/*Modification paragraph Copyright footer */
+p.paragraph__footer__1{
+  display: flex;
+  float: left;
+  margin-top: 1.1rem;
+  margin-left: 3rem;
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+/*Modification paragraph Vive tech footer */
+p.paragraph__footer__2{
+  display: flex;
+  float: right;
+  margin-top: 1.1rem;
+  margin-right: 3rem;
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
